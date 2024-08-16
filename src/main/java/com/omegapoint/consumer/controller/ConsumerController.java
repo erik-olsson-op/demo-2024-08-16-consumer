@@ -23,6 +23,7 @@ public class ConsumerController {
             path = "api/v1/upload"
     )
     public ResponseEntity<String> postCsv(@RequestBody UploadRequest uploadRequest) {
+        log.info(uploadRequest.getName());
         var bytes = Base64.getDecoder()
                 .decode(uploadRequest.getBase64());
         files.put(uploadRequest.getName(), bytes);
